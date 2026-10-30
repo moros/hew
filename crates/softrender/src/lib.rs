@@ -985,7 +985,7 @@ mod tests {
             pixels
                 .iter()
                 .zip(&r.depth)
-                .all(|(&v, z)| (v == 0) == !z.is_finite()),
+                .all(|(&v, z)| (v != 0) == z.is_finite()),
             "only background is 0"
         );
         // And the documented inverse recovers the metric depth.

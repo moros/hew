@@ -221,7 +221,7 @@ impl Object {
                 }
                 if k == 0 {
                     path.push(a);
-                } else if !path.last().is_some_and(|&p: &Point3| bits(p) == bits(a)) {
+                } else if path.last().is_none_or(|&p: &Point3| bits(p) != bits(a)) {
                     return Err(StickyError::PathNotSimple);
                 }
                 path.push(b);
